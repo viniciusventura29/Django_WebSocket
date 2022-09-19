@@ -8,5 +8,32 @@
 </head>
 <body>
     <h1>Hello World</h1>
+      <p id="text">{{ text }}</p>
+      <input id="btn" type="text" />
+      <button  onclick="send()">Send</button>
+
+
+        <script>
+
+            const socket = new WebSocket('ws://localhost:8000/ws/some_url/');
+
+            socket.onmessage = function(event){
+                var data = JSON.parse(event.data);
+            
+                
+            }
+
+            function send(){
+                socket.onmessage = function(){
+                    var texto = document.getElementById('btn')
+                    console.log(texto.value)
+                    document.querySelector('#text').innerHTML = texto.value;
+                }
+            }
+
+
+            
+        </script>
+
 </body>
 </html>
