@@ -1,40 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./css/chat.css">
     <title>Document</title>
 </head>
 <body>
-    
-    <textarea id="chat-text" cols="80" rows="30">
-    </textarea>
-    <input id="input" size="80" type="text">
-    <input id="submit" type="button" value="send">
-
+    <div class="text">
+        <textarea id="chat-text" cols="80" rows="30">
+        </textarea>
+        <input id="input" size="80" type="text">
+        <input id="submit" type="button" value="send">
+    </div>
+    {{user}}
 
     <!-- <div id="user_hello"></div> -->
 
     {{ room_name|json_script:"room-name" }}
+    {{request.user.username|json_script:"user_name"}}
     <script>
+        const roomName = JSON.parse(document.getElementById('room-name').textContent)
+        const user_name = JSON.parse(document.getElementById('user_name').textContent)
+
         document.querySelector("#submit").onclick = function(e){
             const message = document.querySelector("#input").value;
             socket.send(JSON.stringify({
                 'message':message,
+                'username':user_name,
             }))
             document.querySelector("#input").value ="";
         }
 
 
-        const roomName = JSON.parse(document.getElementById('room-name').textContent)
+        
         const socket = new WebSocket('ws://'+ window.location.host +'/ws/chat/'+roomName+'/');
 
         socket.onmessage = function(e){
             const data = JSON.parse(e.data);
             console.log(data)
             // document.querySelector('#user_hello').innerHTML = (data.tester)
-            document.querySelector('#chat-text').value += (data.message + '\n')
+            document.querySelector('#chat-text').value += (data.username +" : "+data.message + '\n')
             
         }
     </script>
