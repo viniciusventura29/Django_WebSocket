@@ -15,24 +15,7 @@
 
         <script>
 
-            const socket = new WebSocket('ws://localhost:8000/ws/some_url/');
-
-            socket.onmessage = function(event){
-                var data = JSON.parse(event.data);
-            
-                
-            }
-
-            function send(){
-                socket.onmessage = function(){
-                    var texto = document.getElementById('btn')
-                    console.log(texto.value)
-                    document.querySelector('#text').innerHTML = texto.value;
-                }
-            }
-
-
-            
+            const socket = new WebSocket('ws://'+ window.location.host +'/ws/chat/'+roomName+'/');
         </script>
 
 </body>

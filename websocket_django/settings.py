@@ -9,6 +9,7 @@ https://docs.djangoproject.com/en/4.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
+from email.policy import default
 import os
 from pathlib import Path
 
@@ -72,6 +73,12 @@ TEMPLATES = [
 WSGI_APPLICATION = 'websocket_django.wsgi.application'
 ASGI_APPLICATION = 'websocket_django.asgi.application'
 
+
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND" : "channels.layers.InMemoryChannelLayer"
+    }
+}
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
