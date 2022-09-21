@@ -1,0 +1,30 @@
+*{
+    margin: 0;
+    padding: 0;
+
+}
+.text{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+}
+
+#chat-text{
+    resize: none;
+}
+
+#input{
+    height:30px;
+    width: 422px;
+    margin-top: 35px;
+    border: gray 0.5px solid;
+    border-radius: 10px;
+}
+
+#submit{
+    margin-top: 20px;
+    padding: 10px 40px;
+    border-radius: 10px;
+    border: 0.5px solid;
+}

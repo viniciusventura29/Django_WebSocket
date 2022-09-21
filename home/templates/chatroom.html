@@ -1,20 +1,22 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="./css/chat.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/chat.css' %}">
     <title>Document</title>
 </head>
 <body>
+    {{user}}
     <div class="text">
-        <textarea id="chat-text" cols="80" rows="30">
-        </textarea>
-        <input id="input" size="80" type="text">
+        <textarea readonly id="chat-text" cols="80" rows="30"></textarea>
+        <input id="input" type="text">
         <input id="submit" type="button" value="send">
     </div>
-    {{user}}
+
 
     <!-- <div id="user_hello"></div> -->
 
@@ -33,8 +35,6 @@
             document.querySelector("#input").value ="";
         }
 
-
-        
         const socket = new WebSocket('ws://'+ window.location.host +'/ws/chat/'+roomName+'/');
 
         socket.onmessage = function(e){

@@ -10,13 +10,19 @@
     <h1>Hello World</h1>
       <p id="text">{{ text }}</p>
       <input id="btn" type="text" />
-      <button  onclick="send()">Send</button>
+      <button onclick="send()">Send</button>
+      <a href="/" + teste >aa</a>
 
 
         <script>
 
             const socket = new WebSocket('ws://'+ window.location.host +'/ws/chat/'+roomName+'/');
+
+            function send(){
+                var teste = document.getElementById('btn').value;
+                console.log(teste)
+            }
         </script>
 
 </body>
-</html>
+</html

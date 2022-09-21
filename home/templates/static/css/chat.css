@@ -1,0 +1,40 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.text{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    justify-content:center;
+    height: 100vh;
+}
+
+#chat-text{
+    resize: none;
+}
+
+#chat-text:focus{
+    outline: none;
+}
+
+#input{
+    height:30px;
+    width: 600px;
+    margin-top: 35px;
+    border: gray 0.5px solid;
+    border-radius: 10px;
+}
+
+#input:focus{
+    outline: none;
+}
+
+#submit{
+    margin-top: 20px;
+    padding: 10px 40px;
+    border-radius: 10px;
+    border: none;
+    background-color: rgb(108, 196, 97);
+}
