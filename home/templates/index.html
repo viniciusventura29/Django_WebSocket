@@ -7,12 +7,10 @@
     <title>Real TIme app</title>
 </head>
 <body>
-    <h1>Hello World</h1>
-      <p id="text">{{ text }}</p>
+    <h1>Write here the url</h1>
+
       <input id="btn" type="text" />
       <button onclick="send()">Send</button>
-      <a href="/" + teste >aa</a>
-
 
         <script>
 
@@ -21,6 +19,8 @@
             function send(){
                 var teste = document.getElementById('btn').value;
                 console.log(teste)
+                location.href=teste+'/'
+
             }
         </script>
 
